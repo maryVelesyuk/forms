@@ -1,10 +1,18 @@
 import { Link } from "react-router-dom";
+import { PageWrapper } from "../../components/PageWrapper";
+import { FormData } from "../../components/FormData";
+import styles from "./Main.module.css";
 
 export const Main = () => {
   return (
-    <div>
-      <Link to="/uncontrolled-approach">uncontrolled-approach</Link>
-      <Link to="/react-hook-form">react-hook-form</Link>
-    </div>
+    <PageWrapper>
+      <div className={styles.nav}>
+        <Link to="/uncontrolled-approach">Uncontrolled Approach</Link>
+        <Link to="/react-hook-form">React Hook Form</Link>
+      </div>
+      <div className={styles.content}>
+        <FormData />
+      </div>
+    </PageWrapper>
   );
 };

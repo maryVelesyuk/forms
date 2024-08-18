@@ -1,8 +1,9 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Main } from "./pages/Main";
+import { Main, UncontrolledForm, ReactHookForm } from "./pages";
 import "./index.css";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 const router = createBrowserRouter([
   {
@@ -11,16 +12,16 @@ const router = createBrowserRouter([
   },
   {
     path: "/uncontrolled-approach",
-    element: <div>Uncontrolled</div>,
+    element: <UncontrolledForm />,
   },
   {
     path: "react-hook-form",
-    element: <div>React Hook form</div>,
+    element: <ReactHookForm />,
   },
 ]);
 
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
+  <Provider store={store}>
     <RouterProvider router={router} />
-  </StrictMode>
+  </Provider>
 );
