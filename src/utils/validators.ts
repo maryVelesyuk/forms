@@ -30,6 +30,7 @@ export const validationSchema = Yup.object().shape({
       const fileName = value.name.toLowerCase();
       return isValidFileType(fileName);
     }),
+  country: Yup.string().required("Country is required"),
 });
 
 export const validFileExtensions = ["jpg", "png", "jpeg"];

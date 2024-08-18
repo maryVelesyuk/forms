@@ -4,9 +4,10 @@ import { useAppSelector } from "../../redux/hooks";
 
 interface AutocompleteProps {
   inputRef: RefObject<HTMLInputElement>;
+  error: string;
 }
 
-export const Autocomplete: FC<AutocompleteProps> = ({ inputRef }) => {
+export const Autocomplete: FC<AutocompleteProps> = ({ inputRef, error }) => {
   const [query, setQuery] = useState("");
   const [filteredCountries, setFilteredCountries] = useState<string[]>([]);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -62,6 +63,7 @@ export const Autocomplete: FC<AutocompleteProps> = ({ inputRef }) => {
           ))}
         </ul>
       )}
+      {error && <p className={styles.error}>{error}</p>}
     </div>
   );
 };

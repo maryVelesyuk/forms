@@ -172,7 +172,7 @@ export const UncontrolledForm = () => {
           label="Upload Picture"
           onChange={handleFileChange}
         />
-        <Autocomplete inputRef={countryRef} />
+        <Autocomplete inputRef={countryRef} error={errors.country} />
         <button type="submit">Submit</button>
       </form>
     </PageWrapper>
